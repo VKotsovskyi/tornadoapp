@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ escape(handler.settings["todo_title"]) }}</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ static_url("css/todo.css") }}" type="text/css">
+    <link rel="alternate" href="/feed" type="application/atom+xml" title="{{ escape(handler.settings["todo_title"]) }}">
+    {% block head %}{% end %}
+  </head>
+  <body>
+    <div id="body">
+      <div class="header" id="header">
+        <div style="float:right">
+            <a href="/create/">{{ _("New List") }}</a>
+        </div>
+        <h1><a href="/">{{ escape(handler.settings["todo_title"]) }}</a></h1>
+      </div>
+      <div class="content" id="content">{% block body %}{% end %}</div>
+    </div>
+    {% block bottom %}{% end %}
+  </body>
+</html>

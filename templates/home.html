@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body %}
+  {% for list in lists %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4>{{list['title']}}</h4>
+            <pre>{{list['description']}}</pre>
+        </div>
+    </div>
+  {% end %}
+{% end %}

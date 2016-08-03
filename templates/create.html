@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <div class="panel panel-default">
+      <form action="{{ request.path }}" method="post" class="panel-body">
+        <div style="margin-bottom:5px"><input name="title" type="text" value="" placeholder="Title"/></div>
+        <div style="margin-bottom:5px"><textarea name="description" rows="5" cols="40" placeholder="Description"></textarea></div>
+        <div>
+          <input type="submit" value={{ _("Publish LIST") }} class="btn btn-success submit"/>
+          &nbsp;<a href="/">{{ _("Cancel") }}</a>
+        </div>
+        {% module xsrf_form_html() %}
+      </form>
+  </div>
+{% end %}
