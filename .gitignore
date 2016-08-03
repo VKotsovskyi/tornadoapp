@@ -45,3 +45,4 @@ nosetests.xml
 /build/
 
 .emacs.*
+local_setting.py

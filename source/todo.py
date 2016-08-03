@@ -11,8 +11,7 @@ import tornado.ioloop
 from tornado import web
 from tornado import gen
 
-
-from tornado.options import define, options
+from local_setting import USERNAME, PASSWORD
 
 define("port", default=8888, help="run on the given port", type=int)
 
@@ -36,8 +35,8 @@ class Application(tornado.web.Application):
 
         ioloop = tornado.ioloop.IOLoop.instance()
         self.db = momoko.Pool(
-            dsn='dbname=todo user=root password=````` '
-                'host=localhost port=5432',
+            dsn='dbname=todo user={0} password={1} '
+                'host=localhost port=5432'.format(USERNAME, PASSWORD),
             size=1,
             ioloop=ioloop,
             cursor_factory=psycopg2.extras.RealDictCursor
